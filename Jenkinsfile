@@ -15,7 +15,7 @@ pipeline {
 					echo "$Docker_User"
 				}                 
 			}                 
-			stage('Build') {           b              
+			stage('Build') {                         
 				steps {
 					sh "docker rmi -f front" 
 					sh "docker build -t front ."											               	                      
