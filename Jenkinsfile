@@ -17,8 +17,8 @@ pipeline {
 			}                 
 		stage('Build') {                         
 				steps {
-					sh "sudo docker rmi -f front" 
-					sh "sudo docker build -t front ."											               	                      
+					sh "docker rmi -f front" 
+					sh "docker build -t front ."											               	                      
 				}                 
 			}                 
 		stage('push') {
