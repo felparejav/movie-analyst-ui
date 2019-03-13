@@ -13,7 +13,6 @@ pipeline {
 			stage('Prepare') {                         
 				steps {                                 
 					echo "$Docker_User"
-					sh "sudo usermod -aG docker jenkins"
 				}                 
 			}                 
 		stage('Build') {                         
