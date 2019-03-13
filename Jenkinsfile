@@ -24,9 +24,9 @@ pipeline {
 		stage('push') {
 				steps {
 					sh '''
-						sudo docker login -u $Docker_User -p $Docker_Password
-						sudo docker tag front felparejav/front:${Ver}
-						sudo docker push felparejav/front:${Ver}
+						docker login -u $Docker_User -p $Docker_Password
+						docker tag front felparejav/front:${Ver}
+						docker push felparejav/front:${Ver}
 						'''
 				}
 			}                 
