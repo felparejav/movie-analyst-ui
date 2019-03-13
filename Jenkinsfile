@@ -15,24 +15,18 @@ pipeline {
 					echo "$Docker_User"
 				}                 
 			}                 
-			stage('Build') {                         
+		stage('Build') {                         
 				steps {
-					sh "docker rmi -f front" 
-					sh "docker build -t front ."											               	                      
+					sh "sudo docker rmi -f front" 
+					sh "sudo docker build -t front ."											               	                      
 				}                 
 			}                 
-			stage('Test') {                         
-				steps {                                 
-					sh 'docker run front npm test'
-					echo ''                        
-				}                 
-			}
-			stage('push') {
+		stage('push') {
 				steps {
 					sh '''
-						docker login -u $Docker_User -p $Docker_Password
-						docker tag front felparejav/front:${Ver}
-						docker push felparejav/front:${Ver}
+						sudo docker login -u $Docker_User -p $Docker_Password
+						sudo docker tag front felparejav/front:${Ver}
+						sudo docker push felparejav/front:${Ver}
 						'''
 				}
 			}                 
